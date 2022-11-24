@@ -42,7 +42,7 @@ authRouter.post('/signup',async(req,res)=>{
                 }else{
                     let token= jwt.sign({email:auth_user.email,_id:auth_user._id},'secret')
                     // console.log(token)
-                    return res.send({message:'LOGIN SUCCESSFUL',token:token});
+                    return res.send({message:'LOGIN SUCCESSFUL',token:token,id:auth_user._id});
                   
                 }
                 
