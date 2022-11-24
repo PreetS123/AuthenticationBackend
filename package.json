@@ -1,0 +1,27 @@
+{
+  "name": "authenticationbackend",
+  "version": "1.0.0",
+  "description": "login-signup with node.js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PreetS123/AuthenticationBackend.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/PreetS123/AuthenticationBackend/issues"
+  },
+  "homepage": "https://github.com/PreetS123/AuthenticationBackend#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.7.3",
+    "nodemon": "^2.0.20"
+  }
+}
