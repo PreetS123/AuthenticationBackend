@@ -1,6 +1,7 @@
 const express= require('express');
 const cors=require('cors');
 const connection= require('./config');
+const authRouter= require('./routes/Auth.routes');
 require('dotenv').config();
 
 const app= express();
@@ -11,6 +12,9 @@ app.use(cors());
 app.get('/',(req,res)=>{
     res.send('WELCOME TO AUTHENTICATION WORLD');
 })
+
+app.use('/auth',authRouter);
+
 
 const PORT=process.env.PORT||8080;
 
