@@ -34,7 +34,7 @@ authRouter.post('/signup',async(req,res)=>{
                 return res.send('please login again');
             }
             if(result){
-                
+                const token= jwt.sign({email:auth_user.email},'secret')
                 if(!auth_user){
                     return res.send('invalid credentials');
                 }
