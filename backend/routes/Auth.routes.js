@@ -13,6 +13,7 @@ authRouter.post('/signup',async(req,res)=>{
             if(err){
                 return res.send('something went wrong');
             }
+            
             const user= new authModel({name,age,email,password:hash});
              user.save();
             res.send({User:user,message:'ACCOUNT CREATED'})
@@ -28,23 +29,27 @@ authRouter.post('/signup',async(req,res)=>{
       try{
         let auth_user= await authModel.findOne({email:email});
         let hash= auth_user.password;
-        await bcrypt.compare(password, hash,(err, result)=> {
+        // console.log(hash)
+        await bcrypt.compare(password, hash,function(err, result) {
             // result == true
             if(err){
                 return res.send('please login again');
             }
             if(result){
-                const token= jwt.sign({email:auth_user.email},'secret')
+
                 if(!auth_user){
                     return res.send('invalid credentials');
+                }else{
+                    let token= jwt.sign({email:auth_user.email,_id:auth_user._id},'secret')
+                    // console.log(token)
+                    return res.send({message:'LOGIN SUCCESSFUL',token:token});
+                  
                 }
-                return res.send({message:'LOGIN SUCCESSFUL'});
-            }else{
-               return res.send('invalid credentials');
+                
             }
         });
       }catch(er){
-        res.send({message:'login done',auth:auth})
+        res.status(500).send({message:er.message})
       }
     })
 
