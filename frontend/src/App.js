@@ -4,6 +4,7 @@ import { Navbar } from './Components/Navbar';
 import { Dashboard } from './Pages/Dashboard';
 import { Login } from './Pages/Login';
 import { SignUp } from './Pages/SignUp';
+import { Users } from './Pages/Users';
 
 
 function App() {
@@ -14,7 +15,7 @@ function App() {
         <Route path='/' element={<SignUp/>}  />
         <Route path='/login' element={<Login/>}  />
         <Route path='/dashboard' element={<Dashboard/>}  />
-        {/* <Route path='/' element  /> */}
+        <Route path='/users' element={<Users/>}  />
        </Routes>
     </div>
   );

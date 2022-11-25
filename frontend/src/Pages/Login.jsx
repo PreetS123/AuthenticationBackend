@@ -30,7 +30,7 @@ const [inpVal,setInpVal]= useState({
           localStorage.setItem('token',JSON.stringify(res.token))
           console.log('login',res.token);
           alert('LOGIN DONE');
-          navigate('/dashboard')
+          navigate('/users')
         }
        }).catch(er=>console.log(er))
   }

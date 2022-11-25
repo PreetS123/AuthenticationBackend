@@ -39,10 +39,10 @@ export const Navbar = () => {
           <p>Features</p>
         </NavLink>
         <NavLink
-          to="#"
+          to="/users"
          
         >
-          <p>Pricing</p>
+          <p>Users</p>
         </NavLink>
         <NavLink
           to="#"
