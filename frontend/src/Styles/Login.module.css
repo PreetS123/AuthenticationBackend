@@ -9,6 +9,7 @@
     color:#f8640a;
     font-weight:900;
     
+    
 }
 .loginImage{
    flex:2;
@@ -31,6 +32,7 @@
     gap:30px;
     border:1px solid #f8640a;
     margin:50px 0px;
+    box-shadow: rgba(224, 59, 9, 0.856) 0px 6px 12px -2px, rgba(236, 74, 10, 0.89) 0px 3px 7px -3px;
 }
 
 .formWrapper{
