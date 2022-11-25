@@ -61,7 +61,7 @@ export const Navbar = () => {
       {/* authentication button starts from here */}
       <div className={styles.btnbx}>
         <button>Sign In</button>
-        <button>Sign Up</button>
+        <button>Log In</button>
       </div>
 
      
