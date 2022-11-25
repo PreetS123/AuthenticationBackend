@@ -41,15 +41,6 @@
     text-align: center;
     width: 100px;
     height: 50px;
-  }
-  
-  .btnbx :first-child {
-    background: none;
-    border: none;
-    color: rgb(36, 35, 35);
-  }
-  
-  .btnbx :last-child {
     border: 1px solid #f8640a;
     background-color: #fff;
     color: #f8640a;
@@ -57,7 +48,9 @@
     width: 150px;
   }
   
-  .btnbx :last-child:hover {
+  
+  
+  .btnbx button:hover {
     background-color: #f8640a;
     color: white;
   }
@@ -94,10 +87,7 @@
       letter-spacing: 0.2px;
     }
   
-    .btnbx:last-child{
-       width: 40px !important;
-       padding: 0.5%;
-    }
+   
   }
   
   @media screen and (max-width: 350px) {
