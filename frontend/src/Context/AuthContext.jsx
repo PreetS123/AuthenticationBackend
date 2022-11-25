@@ -9,7 +9,7 @@ export function AuthContextProvider({children}){
 
     return(
         <>
-        <AuthContext.Provider value={{isAuth,setAuth}}>
+        <AuthContext.Provider value={[isAuth,setAuth]}>
             {children}
         </AuthContext.Provider>
         </>
