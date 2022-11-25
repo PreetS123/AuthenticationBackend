@@ -15,7 +15,7 @@ export const SignUp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('http://localhost:8080',{
+    fetch('http://localhost:8080/auth/signup',{
       method:'post',
       body:JSON.stringify(inpval),
       headers:{

@@ -1,17 +1,37 @@
-import React from 'react';
+import React,{useState} from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import styles from '../Styles/Login.module.css';
 
 
 export const Login = () => {
+  const navigate= useNavigate();
+const [inpVal,setInpVal]= useState({
+  email:'',
+  password:''
+});
 
-
-  const handleChange=()=>{
-     
+  const handleChange=(e)=>{
+       setInpVal({...inpVal,[e.target.name]:e.target.value})  
   }
 
-  const handleSubmit=()=>{
-     
+  const handleSubmit=async(e)=>{
+    e.preventDefault();
+       await fetch('http://localhost:8080/auth/login',{
+        method:'post',
+        body:JSON.stringify(inpVal),
+        headers:{
+          'content-type':'application/json'
+        }
+       }).then(r=>r.json())
+       .then(res=>{
+        if(res.token){
+          localStorage.setItem('token',res)
+          console.log('login',JSON.stringify(res.token));
+          alert('LOGIN DONE');
+          navigate('/dashboard')
+        }
+       }).catch(er=>console.log(er))
   }
 
 
@@ -33,7 +53,7 @@ export const Login = () => {
                   <label htmlFor="email">Email</label>
                 </InsideDiv>
                 <InsideDiv>
-                  <input className={styles.inputWrapper}  type="email" name="email" onChange={handleChange} />
+                  <input className={styles.inputWrapper}  type="email" name="email" onChange={handleChange} autoComplete='off' />
                 </InsideDiv>
               </div>
 
@@ -42,7 +62,7 @@ export const Login = () => {
                   <label htmlFor="password">Password</label>
                 </InsideDiv>
                 <InsideDiv>
-                  <input className={styles.inputWrapper} type="password" name="password" onChange={handleChange} />
+                  <input className={styles.inputWrapper} type="password" name="password" onChange={handleChange} autoComplete='off' />
                 </InsideDiv>
               </div>
                
