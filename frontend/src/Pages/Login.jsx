@@ -16,6 +16,7 @@ const [inpVal,setInpVal]= useState({
   }
 
   const handleSubmit=async(e)=>{
+    console.log(inpVal)
     e.preventDefault();
        await fetch('http://localhost:8080/auth/login',{
         method:'post',
@@ -27,7 +28,7 @@ const [inpVal,setInpVal]= useState({
        .then(res=>{
         if(res.token){
           localStorage.setItem('token',res)
-          console.log('login',JSON.stringify(res.token));
+          console.log('login',res.token);
           alert('LOGIN DONE');
           navigate('/dashboard')
         }
