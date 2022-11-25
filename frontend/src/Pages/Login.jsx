@@ -21,8 +21,8 @@ export const Login = () => {
         <div className={styles.loginDiv}>
           <div className={styles.loginImage}>
             <img
-              src="https://tse3.mm.bing.net/th?id=OIP.W4JwOf9fsiNIwPhyOyHfnQHaE4&pid=Api&P=0"
-              alt="FACE PREP"
+              src="https://tse1.mm.bing.net/th?id=OIP.02LdA2YkojxyL5Y9a8Ik7gHaEi&pid=Api&P=0"
+              alt="COMPANY"
             />
           </div>
           <h2> Start Your Journey</h2>
