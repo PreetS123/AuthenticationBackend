@@ -63,8 +63,6 @@ export const Login = () => {
 
 
 const InsideDiv = styled.div`
-  display: flex;
-  justify-content: start;
   font-size: 15px;
 `;
 

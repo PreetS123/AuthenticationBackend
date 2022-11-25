@@ -8,12 +8,21 @@ export const SignUp = () => {
     const navigate = useNavigate();
     const [inpval,setInpVal]= useState({
         fullname:"",
+        age:"",
         email:"",
         password:""
     })
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    fetch('http://localhost:8080',{
+      method:'post',
+      body:JSON.stringify(inpval),
+      headers:{
+        'content-type':'application/json'
+      }
+    })
+    navigate('/login');
     
   };
 
@@ -53,6 +62,16 @@ export const SignUp = () => {
 
               <div className={styles.formDiv}>
                 <InsideDiv>
+                  <label htmlFor="age">Age</label>
+                </InsideDiv>
+                <InsideDiv>
+                  <input className={styles.inputWrapper}  type="text" name="age" onChange={handleChange} />
+                </InsideDiv>
+              
+              </div>
+
+              <div className={styles.formDiv}>
+                <InsideDiv>
                   <label htmlFor="email">Email</label>
                 </InsideDiv>
                 <InsideDiv>
@@ -85,8 +104,6 @@ export const SignUp = () => {
 
 
 const InsideDiv = styled.div`
-  display: flex;
-  justify-content: start;
   font-size: 15px;
 `;
 

@@ -46,7 +46,7 @@
  .formDiv{
     width: 100%;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     gap: 30px;
     text-align: start;
     /* border: 1px solid; */

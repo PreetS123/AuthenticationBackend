@@ -39,20 +39,20 @@
     flex-direction:column;
     justify-content:space-around;
     align-items:center;
-    gap:30px;
+    gap:20px;
 }
 
  .formDiv{
     width: 100%;
     display: flex;
-    justify-content: space-around;
-    gap: 30px;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
     text-align: start;
     /* border: 1px solid; */
  }
  .inputWrapper{
     height: 30px;
-    /* padding: 1% 2%; */
     border-radius: 10px;
     border: 2px solid #f8640a;
  }
