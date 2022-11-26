@@ -20,7 +20,7 @@ export const Login = () => {
   const handleSubmit=async(e)=>{
     // console.log(inpVal)
     e.preventDefault();
-       await fetch('http://localhost:8080/auth/login',{
+       await fetch('https://authbackend.up.railway.app/auth/login',{
         method:'POST',
         body:JSON.stringify(inpVal),
         headers:{
