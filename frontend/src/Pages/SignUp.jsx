@@ -15,7 +15,7 @@ export const SignUp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetch('https://authbackend.up.railway.app/auth/signup',{
+    fetch('https://authback.up.railway.app/auth/signup',{
       method:'post',
       body:JSON.stringify(inpval),
       headers:{

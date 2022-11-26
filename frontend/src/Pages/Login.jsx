@@ -20,7 +20,7 @@ export const Login = () => {
   const handleSubmit=async(e)=>{
     // console.log(inpVal)
     e.preventDefault();
-       await fetch('https://authbackend.up.railway.app/auth/login',{
+       await fetch('https://authback.up.railway.app/auth/login',{
         mode:'no-cors',
         method:'POST',
         body:JSON.stringify(inpVal),
