@@ -1,9 +1,9 @@
-import React,{ useContext, useEffect,useState}from 'react'
+import React,{ useContext, useEffect}from 'react'
 import { AuthContext } from '../Context/AuthContext'
 
 
 export const Users = () => {
-   const [data,setData]= useState([]);
+  //  const [data,setData]= useState([]);
    const [state]= useContext(AuthContext);
 
 
