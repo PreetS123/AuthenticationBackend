@@ -1,15 +1,17 @@
-import React,{useState} from 'react';
-import { useNavigate } from 'react-router-dom';
+import React,{useContext, useState} from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import { AuthContext } from '../Context/AuthContext';
 import styles from '../Styles/Login.module.css';
 
 
 export const Login = () => {
+  const [state,dispatch]= useContext(AuthContext);
   const navigate= useNavigate();
-const [inpVal,setInpVal]= useState({
-  email:'',
-  password:''
-});
+  const [inpVal,setInpVal]= useState({
+     email:'',
+     password:''
+   });
 
   const handleChange=(e)=>{
        setInpVal({...inpVal,[e.target.name]:e.target.value})  
@@ -26,16 +28,21 @@ const [inpVal,setInpVal]= useState({
         }
        }).then(r=>r.json())
        .then(res=>{
-        if(res.token){
-          localStorage.setItem('token',JSON.stringify(res.token))
+          if(res.token){
           console.log('login',res.token);
           alert('LOGIN DONE');
+          dispatch({
+            type:'LOGIN_SUCCESS',
+            payload:res.token
+          })
           navigate('/users')
-        }
+          }
        }).catch(er=>console.log(er))
   }
 
-
+  if(state.isAuth){
+    return <Navigate to='/users'/>
+  }
   return (
     <div>
       <div className={styles.loginWrapper}>

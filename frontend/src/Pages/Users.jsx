@@ -1,9 +1,11 @@
-import React,{ useEffect, useState}from 'react'
+import React,{ useContext, useEffect,useState}from 'react'
+import { AuthContext } from '../Context/AuthContext'
 
 
 export const Users = () => {
    const [data,setData]= useState([]);
-   
+   const [state]= useContext(AuthContext);
+
 
 
    useEffect(()=>{
@@ -12,6 +14,9 @@ export const Users = () => {
 
   
   return (
-    <div>Users</div>
+    <div>
+        <h1>Welcome to users page</h1>
+        {state.token && <h6>Token: {state.token}</h6>}
+    </div>
   )
 }

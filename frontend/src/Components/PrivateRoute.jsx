@@ -5,9 +5,10 @@ import { AuthContext } from "../Context/AuthContext";
 
 
 export function PrivateRoute({children}){
-    const [isAuth]= useContext(AuthContext);
-
-    if(isAuth){
+    const [state]= useContext(AuthContext);
+     
+   
+    if(state.isAuth){
         return children;
     }
 

@@ -1,25 +1,21 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "../Styles/Navbar.module.css";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { useState } from "react";
+import { AuthContext } from "../Context/AuthContext";
 
 export const Navbar = () => {
   const [show,setShow]= useState(false);
-  // const active = {
-  //   color: "#A2A2A1",
-  //   textDecoration: "none",
-  // };
-  // const unactive = {
-  //   color: "#F8640A",
-  //   textDecoration: "none",
-  //   fontSize: "20px",
-  // };
+  const [state]= useContext(AuthContext);
+  
+
+
   return (
     <div className={styles.main_nav}>
       {/* logo here */}
       <div className={styles.logo}>
-      <NavLink to="#"  >
+      <NavLink to="/dashboard"  >
        <img src='https://tse3.mm.bing.net/th?id=OIP.0jl9haemnq0P4eYzzrfNOgHaGw&pid=Api&P=0' alt='LOGO' />
       </NavLink>
       </div>
@@ -60,8 +56,11 @@ export const Navbar = () => {
 
       {/* authentication button starts from here */}
       <div className={styles.btnbx}>
-        <button>Sign In</button>
-        <button>Log In</button>
+        <button><NavLink to='/'>Sign In</NavLink></button>
+        
+          <button><NavLink to='/login' >Log In</NavLink></button>
+        
+        
       </div>
 
      
