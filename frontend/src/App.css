@@ -1,0 +1,20 @@
+.user_cont{
+    width: 80%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.user_data{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 100px;
+    height: fit-content;
+    font-size: 10px;
+}
+
+.user_data img{
+    height: 100px;
+    width: 100%;
+}
