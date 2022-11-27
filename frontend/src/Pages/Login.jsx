@@ -15,30 +15,38 @@ export const Login = () => {
   const handleChange = (e) => {
     setInpVal({ ...inpVal, [e.target.name]: e.target.value });
   };
+   
 
-  const handleSubmit = (e) => {
-    // console.log(inpVal)
+  // async function LoginPost(){
+   
+  // }
+
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-     fetch("https://authback.up.railway.app/auth/login", {
-      mode: "no-cors",
+    // console.log(inpVal)
+    // "https://authback.up.railway.app/auth/login"
+    await fetch("http://localhost:8080/auth/login", {
       method: "POST",
       body: JSON.stringify(inpVal),
       headers: {
-        "content-type": "application/json",
+        "Content-Type": "application/json",
       },
     })
       .then((r) => r.json())
       .then((res) => {
-        if (res.token) {
+       
           console.log("login", res.token);
-          alert("LOGIN DONE");
           dispatch({
             type: "LOGIN_SUCCESS",
             payload: res.token,
-          });
-          navigate("/users");
+          })
+          if (res.token) {
+            alert("LOGIN DONE");
+            navigate("/users");
         }
-      });
+      }).catch(er=>console.log(er))
+    
   };
 
   if (state.isAuth) {

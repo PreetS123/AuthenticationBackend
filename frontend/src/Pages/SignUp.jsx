@@ -14,13 +14,14 @@ export const SignUp = () => {
     })
 
   const handleSubmit = (e) => {
+    // https://authback.up.railway.app/auth/signup
     e.preventDefault();
-    fetch('https://authback.up.railway.app/auth/signup',{
+    fetch('http://localhost:8080/auth/signup',{
       method:'post',
       body:JSON.stringify(inpval),
       headers:{
         'content-type':'application/json'
-      }
+      },
     })
     navigate('/login');
     
