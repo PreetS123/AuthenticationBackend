@@ -1,48 +1,48 @@
-import React,{useContext, useState} from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
-import { AuthContext } from '../Context/AuthContext';
-import styles from '../Styles/Login.module.css';
-
+import React, { useContext, useState } from "react";
+import { Navigate, useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import { AuthContext } from "../Context/AuthContext";
+import styles from "../Styles/Login.module.css";
 
 export const Login = () => {
-  const [state,dispatch]= useContext(AuthContext);
-  const navigate= useNavigate();
-  const [inpVal,setInpVal]= useState({
-     email:'',
-     password:''
-   });
+  const [state, dispatch] = useContext(AuthContext);
+  const navigate = useNavigate();
+  const [inpVal, setInpVal] = useState({
+    email: "",
+    password: "",
+  });
 
-  const handleChange=(e)=>{
-       setInpVal({...inpVal,[e.target.name]:e.target.value})  
-  }
+  const handleChange = (e) => {
+    setInpVal({ ...inpVal, [e.target.name]: e.target.value });
+  };
 
-  const handleSubmit=async(e)=>{
+  const handleSubmit = (e) => {
     // console.log(inpVal)
     e.preventDefault();
-       await fetch('https://authback.up.railway.app/auth/login',{
-        mode:'no-cors',
-        method:'POST',
-        body:JSON.stringify(inpVal),
-        headers:{
-          'content-type':'application/json'
-        }
-       }).then(r=>r.json())
-       .then(res=>{
-          if(res.token){
-          console.log('login',res.token);
-          alert('LOGIN DONE');
+     fetch("https://authback.up.railway.app/auth/login", {
+      mode: "no-cors",
+      method: "POST",
+      body: JSON.stringify(inpVal),
+      headers: {
+        "content-type": "application/json",
+      },
+    })
+      .then((r) => r.json())
+      .then((res) => {
+        if (res.token) {
+          console.log("login", res.token);
+          alert("LOGIN DONE");
           dispatch({
-            type:'LOGIN_SUCCESS',
-            payload:res.token
-          })
-          navigate('/users')
-          }
-       }).catch(er=>console.log(er))
-  }
+            type: "LOGIN_SUCCESS",
+            payload: res.token,
+          });
+          navigate("/users");
+        }
+      });
+  };
 
-  if(state.isAuth){
-    return <Navigate to='/users'/>
+  if (state.isAuth) {
+    return <Navigate to="/users" />;
   }
   return (
     <div>
@@ -55,14 +55,20 @@ export const Login = () => {
             />
           </div>
           <h2> Start Your Journey</h2>
-          <form >
+          <form>
             <div className={styles.formWrapper}>
               <div className={styles.formDiv}>
                 <InsideDiv>
                   <label htmlFor="email">Email</label>
                 </InsideDiv>
                 <InsideDiv>
-                  <input className={styles.inputWrapper}  type="email" name="email" onChange={handleChange} autoComplete='off' />
+                  <input
+                    className={styles.inputWrapper}
+                    type="email"
+                    name="email"
+                    onChange={handleChange}
+                    autoComplete="off"
+                  />
                 </InsideDiv>
               </div>
 
@@ -71,25 +77,28 @@ export const Login = () => {
                   <label htmlFor="password">Password</label>
                 </InsideDiv>
                 <InsideDiv>
-                  <input className={styles.inputWrapper} type="password" name="password" onChange={handleChange} autoComplete='off' />
+                  <input
+                    className={styles.inputWrapper}
+                    type="password"
+                    name="password"
+                    onChange={handleChange}
+                    autoComplete="off"
+                  />
                 </InsideDiv>
               </div>
-               
-              
+
               <FormButtonDiv>
-                <button className={styles.btn} onClick={handleSubmit} >LOGIN</button>
+                <button className={styles.btn} onClick={handleSubmit}>
+                  LOGIN
+                </button>
               </FormButtonDiv>
             </div>
           </form>
         </div>
       </div>
     </div>
-  )
-}
-
-
-
-
+  );
+};
 
 const InsideDiv = styled.div`
   font-size: 15px;
